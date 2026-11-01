@@ -1,0 +1,61 @@
+# Logs
+*.log
+logs/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+### 빌드 결과물 ###
+target/
+build/
+out/
+!gradle/wrapper/gradle-wrapper.jar
+.gradle/
+
+### IntelliJ ###
+.idea/
+*.iml
+*.ipr
+*.iws
+.run/
+
+### 비밀 정보 / 로컬 설정 ###
+.env
+.env.*
+application-local.yml
+application-local.properties
+
+### 기타 IDE ###
+.vscode/
+.classpath
+.project
+.settings/
+### 테스트 산출물 ###
+test-results/
+playwright-report/
+coverage/
+
+### PWA 개발 모드 산출물 (vite-plugin-pwa) ###
+dev-dist/
+
+### 가계부 백업 파일: 실제 거래 내역이 들어 있으므로 절대 커밋하지 않는다 ###
+budget-backup-*.json
