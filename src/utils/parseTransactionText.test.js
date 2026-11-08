@@ -93,6 +93,11 @@ describe('종류·자산·태그', () => {
   it('수입 키워드', () => expect(parse('월급 300만').type).toBe('INCOME'));
   it('카테고리명', () => expect(parse('쇼핑 3만').categoryId).toBe(200));
   it('자산 조사와 대소문자를 무시한다', () => expect(parse('kb체크로 5000').assetId).toBe(3));
+  it('# 없이 태그명과 같은 단어는 태그만 설정하고 내용에서 뺀다', () => {
+    const r = parse('스벅 카페 4500');
+    expect(r).toMatchObject({tagId : 10, categoryId : 100, memo : '스벅'});
+  });
+  it('태그명 단어만 있으면 내용은 비운다', () => expect(parse('카페 4500')).toMatchObject({tagId : 10, memo : ''}));
   it('등록되지 않은 #태그는 내용으로 남는다', () => expect(parse('#없는태그 4500').memo).toBe('없는태그'));
 
   it('이체는 카드를 입금 쪽으로 보낸다', () => {

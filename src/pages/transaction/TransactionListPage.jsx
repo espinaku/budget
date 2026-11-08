@@ -147,7 +147,8 @@ function TransactionListPage() {
                   onClick={() => setPanelOpen((v) => !v)}>
             <Icon name="search"/>
           </button>
-          <button type="button" className="icon-btn icon-btn--primary" aria-label="거래 추가" onClick={openForm}>
+          {/* 데스크톱용. 모바일은 하단 탭 위 플로팅 버튼(.fab)을 쓰고 이 버튼은 CSS로 숨김 */}
+          <button type="button" className="icon-btn icon-btn--primary tx-add-top" aria-label="거래 추가" onClick={openForm}>
             <Icon name="plus"/>
           </button>
         </div>
@@ -207,6 +208,13 @@ function TransactionListPage() {
         showForm={showForm}
         onCloseForm={() => setShowForm(false)}
       />
+
+      {/* 모바일 전용 거래 추가 버튼: 하단 탭 바 위에 고정 (거래 화면에서만, 폼이 열려 있으면 숨김) */}
+      {!showForm && (
+        <button type="button" className="fab" aria-label="거래 추가" onClick={openForm}>
+          <Icon name="plus" size={26}/>
+        </button>
+      )}
     </div>
   );
 }
